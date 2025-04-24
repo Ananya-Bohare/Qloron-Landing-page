@@ -5,9 +5,6 @@ import aboutImage from '../assets/about.avif';
 import service1 from '../assets/service1.jpg';
 import service2 from '../assets/service2.jpg';
 import service3 from '../assets/service3.jpg';
-import technology1 from '../assets/tech1.png';
-import technology2 from '../assets/tech2.png';
-import technology3 from '../assets/tech3.png';
 import testimonial1 from '../assets/testimonial1.png';
 import testimonial2 from '../assets/testimonial2.png';
 import client1 from '../assets/client13.svg'
@@ -105,7 +102,7 @@ const ClientLogosMarquee: React.FC = () => {
                     >
                         {[...clientLogos, ...clientLogos].map((logo, index) => (
                             <motion.div
-                                key={`${logo.alt}-${index}`}
+                                key={`${logo}-${index}`}
                                 className="flex-shrink-0"
                                 whileHover={{ scale: 1.05, opacity: 1 }}
                                 style={{ opacity: 0.7 }}

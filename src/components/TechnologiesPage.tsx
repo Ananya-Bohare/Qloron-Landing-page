@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FaReact, FaJava, FaNodeJs, FaDatabase,
+  FaReact, FaNodeJs, FaDatabase,
   FaAws, FaDocker, FaGitAlt, FaCode,
   FaAngular, FaVuejs, FaPython
 } from 'react-icons/fa';

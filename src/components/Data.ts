@@ -149,8 +149,15 @@ export const jobOpenings = [
       description: "Flexible hours and generous PTO policies"
     }
   ];
-
-  export const developerTeams = [
+  
+export interface DeveloperTeam {
+    icon: IconType;
+    className?: string;
+    title: string;
+    description: string;
+    skills: string[];
+  }
+  export const developerTeams: DeveloperTeam[] = [
     {
       icon: FaLaptopCode, // Store the component
       className: "text-3xl text-blue-500",
@@ -187,8 +194,14 @@ export const jobOpenings = [
       skills: ["MERN Stack", "JAM Stack", "Serverless", "Microservices"]
     }
   ];
+  
+export interface HiringModel {
+    title: string;
+    description: string;
+    bestFor: string;
+  }
 
-export const hiringModels = [
+export const hiringModels: HiringModel[] = [
     {
       title: "Dedicated Team",
       description: "Exclusive team working only on your project",

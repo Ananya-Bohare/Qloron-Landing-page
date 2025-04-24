@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaRegEye, FaFilter } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,7 +15,7 @@ import project8 from '../assets/project8.webp';
 
 const PortfolioPage = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [hoveredProject, setHoveredProject] = useState(null);
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects = [
     {

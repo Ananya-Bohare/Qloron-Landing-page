@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { developerTeams, hiringModels, techSkills } from './Data';
+import { developerTeams, hiringModels, techSkills, DeveloperTeam, HiringModel } from './Data';
 
 const HireDevelopersPage = () => {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -147,7 +147,7 @@ const HireDevelopersPage = () => {
                 </div>
                 <p className="text-gray-600 mb-4">{team.description}</p>
                 <div className="flex flex-wrap gap-2">
-                {team.skills.map((skill, skillIndex) => (
+                {team.skills.map((skill: string, skillIndex: number) => (
                     <span key={skillIndex} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
                       {skill}
                     </span>

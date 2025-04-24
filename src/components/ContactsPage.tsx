@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import emailjs from 'emailjs-com';
 
-emailjs.init('bohareananya3@gmail.com');
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const ContactsPage = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +18,7 @@ const ContactsPage = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -27,7 +27,7 @@ const ContactsPage = () => {
     setSubmitError('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError('');
@@ -35,11 +35,12 @@ const ContactsPage = () => {
     try {
       // Send email using EmailJS
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
+          to_email: "bohareananya3@gmail.com",
           subject: formData.subject,
           message: formData.message
         }
@@ -50,7 +51,7 @@ const ContactsPage = () => {
         name: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
       });
       
       // Reset success message after 5 seconds
@@ -290,7 +291,7 @@ const ContactsPage = () => {
                   <textarea
                     id="message"
                     name="message"
-                    rows="5"
+                    rows={5}
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -344,7 +345,7 @@ const ContactsPage = () => {
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
