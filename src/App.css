@@ -1,0 +1,48 @@
+/* Add to your global.css or equivalent */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+  
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  
+  .animate-marquee2 {
+    animation: marquee2 30s linear infinite;
+  }
+
+
+
+    .animated-gradient-bg {
+      background: linear-gradient(-45deg, #00c6fb, #005bea, #00c6fb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-float1 {
+      animation: float 8s ease-in-out infinite;
+    }
+    .animate-float2 {
+      animation: float 10s ease-in-out infinite reverse;
+      animation-delay: 1s;
+    }
+    .animate-float3 {
+      animation: float 12s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-50px) translateX(20px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+  
