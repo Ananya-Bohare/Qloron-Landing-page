@@ -1,204 +1,271 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import heroBg from '../assets/Hero8.png';
+import tech from '../assets/techsec.PNG'
 import {
-  FaReact, FaNodeJs, FaDatabase,
-  FaAws, FaDocker, FaGitAlt, FaCode,
-  FaAngular, FaVuejs, FaPython
+    FaReact, FaNodeJs, FaDatabase,
+    FaAws, FaDocker, FaGitAlt, FaCode,
+    FaAngular, FaVuejs, FaPython,
+    FaKotlin, FaJava, FaAndroid, FaApple,
+    FaHtml5, FaCss3, FaJs
 } from 'react-icons/fa';
 import {
-  SiTypescript, SiSpring, SiPostgresql,
-  SiMongodb, SiKubernetes, SiGraphql,
-  SiNextdotjs, SiTailwindcss, SiRedux,
-  SiNestjs, SiExpress, SiFirebase
+    SiTypescript, SiSpring, SiPostgresql,
+    SiMongodb, SiKubernetes, SiGraphql,
+    SiNextdotjs, SiTailwindcss, SiRedux,
+    SiNestjs, SiExpress, SiFirebase,
+    SiFlutter, SiIonic,SiKotlin
 } from 'react-icons/si';
 
+
 const TechnologiesPage: React.FC = () => {
-    const techCategories = [
+    const techStack = [
         {
-          title: "Frontend Power",
-          icon: <FaReact className="text-3xl text-blue-500" />, // added color
-          color: "from-cyan-400 to-blue-500",
-          technologies: [
-            { name: "React", icon: <FaReact className="text-2xl text-blue-500" /> },
-            { name: "TypeScript", icon: <SiTypescript className="text-2xl text-blue-600" /> },
-            { name: "Next.js", icon: <SiNextdotjs className="text-2xl text-black" /> },
-            { name: "Angular", icon: <FaAngular className="text-2xl text-red-500" /> },
-            { name: "Vue", icon: <FaVuejs className="text-2xl text-green-500" /> },
-            { name: "Tailwind", icon: <SiTailwindcss className="text-2xl text-cyan-400" /> },
-            { name: "Redux", icon: <SiRedux className="text-2xl text-purple-500" /> }
-          ]
+            title: "Mobile App Development",
+            technologies: [
+                { name: "Kotlin", icon: <SiKotlin className="text-4xl" style={{ color: '#A97BFF' }} /> },
+                { name: "Java", icon: <FaJava className="text-4xl" style={{ color: '#F89820' }} /> },
+                { name: "React Native", icon: <FaReact className="text-4xl text-blue-500" /> },
+                { name: "Flutter", icon: <SiFlutter className="text-4xl text-blue-300" /> },
+                { name: "Ionic", icon: <SiIonic className="text-4xl text-blue-600" /> },
+            ],
         },
         {
-          title: "Backend Mastery",
-          icon: <FaNodeJs className="text-3xl text-green-600" />,
-          color: "from-purple-400 to-indigo-500",
-          technologies: [
-            { name: "Node.js", icon: <FaNodeJs className="text-2xl text-green-600" /> },
-            { name: "Java/Spring", icon: <SiSpring className="text-2xl text-green-600" /> },
-            { name: "NestJS", icon: <SiNestjs className="text-2xl text-red-500" /> },
-            { name: "Express", icon: <SiExpress className="text-2xl text-gray-800" /> },
-            { name: "Python", icon: <FaPython className="text-2xl text-blue-400" /> },
-            { name: "GraphQL", icon: <SiGraphql className="text-2xl text-pink-600" /> }
-          ]
+            title: "Web App Development",
+            technologies: [
+                { name: "HTML", icon: <FaHtml5 className="text-4xl text-orange-500" /> },
+                { name: "CSS", icon: <FaCss3 className="text-4xl text-blue-500" /> },
+                { name: "JavaScript", icon: <FaJs className="text-4xl text-yellow-400" /> },
+                { name: "React", icon: <FaReact className="text-4xl text-blue-500" /> },
+                { name: "Angular", icon: <FaAngular className="text-4xl text-red-500" /> },
+            ],
+        },
+        // Keep the other sections using their existing icons
+        {
+            title: "Backend Development",
+            technologies: [
+                { name: "Node.js", icon: <FaNodeJs className="text-4xl text-green-600" /> },
+                { name: "Python", icon: <FaPython className="text-4xl text-blue-400" /> },
+                { name: "Java", icon: <FaCode className="text-4xl text-red-700" /> },
+                { name: "Spring", icon: <SiSpring className="text-4xl text-green-600" /> },
+                { name: ".NET", icon: <FaCode className="text-4xl text-blue-700" /> },
+                { name: "Express.js", icon: <SiExpress className="text-4xl text-gray-800" /> },
+                { name: "NestJS", icon: <SiNestjs className="text-4xl text-red-500" /> },
+            ],
         },
         {
-          title: "Data & Storage",
-          icon: <FaDatabase className="text-3xl text-amber-600" />,
-          color: "from-amber-400 to-orange-500",
-          technologies: [
-            { name: "MongoDB", icon: <SiMongodb className="text-2xl text-green-600" /> },
-            { name: "PostgreSQL", icon: <SiPostgresql className="text-2xl text-blue-700" /> },
-            { name: "Firebase", icon: <SiFirebase className="text-2xl text-yellow-500" /> },
-            { name: "MySQL", icon: <FaDatabase className="text-2xl text-blue-500" /> }
-          ]
+            title: "Database",
+            technologies: [
+                { name: "PostgreSQL", icon: <SiPostgresql className="text-4xl text-blue-700" /> },
+                { name: "MongoDB", icon: <SiMongodb className="text-4xl text-green-600" /> },
+                { name: "MySQL", icon: <FaDatabase className="text-4xl text-blue-500" /> },
+                { name: "Firebase", icon: <SiFirebase className="text-4xl text-yellow-500" /> },
+                { name: "GraphQL", icon: <SiGraphql className="text-4xl text-pink-600" /> },
+            ],
         },
         {
-          title: "DevOps & Cloud",
-          icon: <FaAws className="text-3xl text-orange-500" />,
-          color: "from-emerald-400 to-teal-500",
-          technologies: [
-            { name: "AWS", icon: <FaAws className="text-2xl text-orange-500" /> },
-            { name: "Docker", icon: <FaDocker className="text-2xl text-blue-400" /> },
-            { name: "Kubernetes", icon: <SiKubernetes className="text-2xl text-blue-500" /> },
-            { name: "CI/CD", icon: <FaGitAlt className="text-2xl text-red-500" /> }
-          ]
-        }
-      ];
-      
+            title: "Cloud & DevOps",
+            technologies: [
+                { name: "AWS", icon: <FaAws className="text-4xl text-orange-500" /> },
+                { name: "Google Cloud", icon: <FaAws className="text-4xl text-blue-300" /> },
+                { name: "Azure", icon: <FaAws className="text-4xl text-blue-800" /> },
+                { name: "Docker", icon: <FaDocker className="text-4xl text-blue-400" /> },
+                { name: "Kubernetes", icon: <SiKubernetes className="text-4xl text-blue-500" /> },
+                { name: "CI/CD", icon: <FaGitAlt className="text-4xl text-red-500" /> },
+            ],
+        },
+    ];
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-teal-600 to-blue-700 text-white py-28 md:py-36 overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-  <div className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-white animate-float1"></div>
-  <div className="absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-white animate-float2"></div>
-  <div className="absolute top-1/2 left-1/5 w-10 h-10 rounded-full bg-white animate-float1"></div>
-  <div className="absolute bottom-3 right-1/4 w-6 h-6 rounded-full bg-white animate-float2"></div>
-  <div className="absolute bottom-1/4 left-3/4 w-8 h-8 rounded-full bg-white animate-float1"></div>
-  <div className="absolute bottom-1/3 right-1/5 w-10 h-10 rounded-full bg-white animate-float2"></div>
-  <div className="absolute top-10 left-2/3 w-6 h-6 rounded-full bg-white animate-float1"></div>
-  <div className="absolute top-16 right-1/6 w-14 h-14 rounded-full bg-white animate-float2"></div>
-  <div className="absolute bottom-10 left-10 w-8 h-8 rounded-full bg-white animate-float1"></div>
-  <div className="absolute bottom-20 right-16 w-10 h-10 rounded-full bg-white animate-float2"></div>
-</div>
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-teal-300">Tech Stack</span>
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
-            The powerful technologies we use to build exceptional digital products
-          </p>
-        </div>
-      </section>
-
-      {/* Technology Categories - Modern Design */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Technologies We Love</h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              From frontend flair to backend powerhouses — here's our tech toolbox
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {techCategories.map((category, index) => (
-              <div 
-                key={index} 
-                className="rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                <div className={`bg-gradient-to-r ${category.color} p-6`}>
-                  <div className="flex items-center justify-center h-16 w-16 backdrop-blur-sm mx-auto">
-                    {React.cloneElement(category.icon, { className: "text-6xl text-white" })}
-                  </div>
-                  <h3 className="text-xl font-bold text-white text-center mt-4">{category.title}</h3>
+    return (
+        <div className="font-sans bg-gray-100">
+            {/* Hero Section (as before) */}
+            <section className="relative text-white h-hero min-h-hero-mobile max-h-hero-desktop overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src={heroBg}
+                        alt="Technology background"
+                        className="w-full h-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#121212]/80 via-[#121212]/60 to-[#00C2C9]/30"></div>
                 </div>
-                
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    {category.technologies.map((tech, techIndex) => (
-                      <div
-                        key={techIndex}
-                        className="flex flex-col items-center p-3 bg-gray-50 hover:bg-gray-100 transition rounded-lg w-20"
-                      >
-                        {React.cloneElement(tech.icon, { className: `${tech.icon.props.className} text-2xl mb-1` })}
-                        <span className="text-xs font-medium text-gray-700 text-center">{tech.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Methodology Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">How We Build</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Our development philosophy ensures quality at every stage
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Modular Architecture",
-                description: "Building with reusable components for scalability",
-                icon: <FaCode className="text-4xl text-teal-500" />
-              },
-              {
-                title: "Agile Process",
-                description: "Iterative development with continuous feedback",
-                icon: <FaGitAlt className="text-4xl text-blue-500" />
-              },
-              {
-                title: "Quality Focus",
-                description: "Rigorous testing and code reviews",
-                icon: <FaAws className="text-4xl text-amber-500" />
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-md transition-shadow">
-                <div className="flex justify-center mb-4">
-                  {item.icon}
+                <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-4xl md:text-6xl font-bold mb-6"
+                    >
+                        Our <span className="text-[#00C2C9]">Tech Stack</span>
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300"
+                    >
+                        The powerful technologies we use to build exceptional digital products
+                    </motion.p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-blue-600 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Build Something Amazing?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Let's discuss how we can leverage these technologies for your project
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/contacts"
-              className="px-8 py-3 bg-white text-teal-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Get Started
-            </Link>
-            <Link
-              to="/portfolio"
-              className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-teal-600 transition-colors"
-            >
-              See Our Work
-            </Link>
-          </div>
-        </div>
-      </section>
+            {/* Tech Image Section */}
+<section className="py-8 bg-gray-100"> {/* Adjust padding and background as needed */}
+    <div className="container mx-auto px-4">
+        <img
+            src={tech}
+            alt="Technology Banner"
+            className="w-full rounded-md shadow-md" // You can add styling classes here
+        />
     </div>
-  );
+</section>
+
+            {/* Technologies Section */}
+<section className="py-20 bg-gray-100">
+  <div className="container mx-auto px-4">
+    <motion.div 
+      className="text-center mb-16"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-4xl font-bold text-[#007D82] mb-4">We accomplished the work using best technologies</h2>
+      
+      <p className="text-gray-800 max-w-4xl mx-auto">
+      Qloron is a custom software development firm located in Nagpur, India. We offer custom software programming services, from offshore software development enhancement. Our software engineers coming from different backgrounds in IT fields.
+    </p>
+    </motion.div>
+
+    <div className="space-y-16">
+      {techStack.map((category, index) => (
+        <div key={index} className="mb-8">
+          <motion.h3
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 1 }}
+            transition={{ duration: 0.1 }}
+            viewport={{ once: true }}
+            className="text-2xl font-semibold text-[#007D82] mb-8 text-center"
+          >
+            {category.title}
+          </motion.h3>
+          
+          <motion.div
+            className="flex flex-wrap justify-center gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.1}}
+            viewport={{ once: true }}
+          >
+            {category.technologies.map((tech, techIndex) => (
+              <motion.div
+                key={techIndex}
+                whileHover={{ y: -10 }}
+                className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 w-36"
+              >
+                <div className="mb-3">
+                  {tech.icon}
+                </div>
+                <span className="text-md text-gray-800 text-center">{tech.name}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+            {/* Methodology Section (as before) */}
+            <section className="py-16 bg-gray-100">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        className="text-center mb-16"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl font-bold text-[#007D82] mb-4">How We Build</h2>
+                        <p className="text-gray-700 max-w-xl mx-auto">
+                            Our development philosophy ensures quality at every stage
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            {
+                                title: "Modular Architecture",
+                                description: "Building with reusable components for scalability",
+                                icon: <FaCode className="text-4xl text-[#00C2C9]" />
+                            },
+                            {
+                                title: "Agile Process",
+                                description: "Iterative development with continuous feedback",
+                                icon: <FaGitAlt className="text-4xl text-[#00C2C9]" />
+                            },
+                            {
+                                title: "Quality Focus",
+                                description: "Rigorous testing and code reviews",
+                                icon: <FaAws className="text-4xl text-[#00C2C9]" />
+                            }
+                        ].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                whileHover={{ y: -5 }}
+                                className="bg-white rounded-xl p-8 text-center shadow-md hover:shadow-lg transition-all border border-gray-200"
+                            >
+                                <div className="flex justify-center mb-4">
+                                    {item.icon}
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
+                                <p className="text-gray-600">{item.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section (as before) */}
+            <section className="py-20 bg-gradient-to-r from-[#00C2C9] to-[#007D82] text-white">
+                <div className="container mx-auto px-4 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                            Ready to Build Something Amazing?
+                        </h2>
+                        <p className="text-xl mb-8 max-w-2xl mx-auto">
+                            Let's discuss how we can leverage these technologies for your project
+                        </p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <Link
+                                to="/contacts"
+                                className="px-8 py-3 bg-white text-[#121212] hover:bg-gray-100 font-bold rounded-lg transition-colors shadow-sm hover:scale-105"
+                            >
+                                Get Started
+                            </Link>
+                            <Link
+                                to="/portfolio"
+                                className="px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-[#121212] font-bold rounded-lg transition-colors shadow-sm hover:scale-105"
+                            >
+                                See Our Work
+                            </Link>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+        </div>
+    );
 };
 
 export default TechnologiesPage;

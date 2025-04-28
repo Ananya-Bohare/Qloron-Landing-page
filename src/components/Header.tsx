@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo (2).png';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,8 +31,8 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white shadow-md'}`}>
-      <div className="container mx-auto px-4">
+    <header className={`sticky top-0 z-50 transition-all duration-300 bg-black`}>
+      <div className="container mx-auto px-1">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.div 
@@ -42,12 +42,12 @@ const Header: React.FC = () => {
             className="flex-shrink-0"
           >
             <Link to="/">
-              <img src={logo} alt="Qloron Logo" className="h-10 md:h-12" />
+              <img src={logo} alt="Qloron Logo" className="h-12 md:h-12" />
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1 lg:space-x-2">
+          <nav className="hidden md:flex space-x-1 lg:space-x-4">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -58,8 +58,8 @@ const Header: React.FC = () => {
                 <Link
                   to={link.path}
                   className={`px-3 py-2 rounded-md text-sm lg:text-base font-medium transition-colors duration-300
-                    ${isScrolled ? 'text-gray-800 hover:text-teal-600' : 'text-gray-800 hover:text-teal-600'}
-                    hover:bg-gray-50`}
+                    ${isScrolled ? 'text-white hover:text-teal-300' : 'text-white hover:text-teal-500'}
+                    `}
                 >
                   {link.label}
                 </Link>
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMobileMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-teal-600 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-teal-400 focus:outline-none"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -96,14 +96,14 @@ const Header: React.FC = () => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white shadow-lg"
+          className="md:hidden border border-gray-600 bg-black shadow-lg"
         >
           <div className="px-2 pt-2 pb-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-teal-400 hover:bg-[#2D2D2D]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}

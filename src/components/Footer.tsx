@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import logo from '../assets/logo (2).png';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +10,9 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">Qloron Technology</h2>
+        <Link to="/">
+              <img src={logo} alt="Qloron Logo" className="h-12 md:h-12 mb-4" />
+            </Link>
           <p className="text-gray-400">
             Driving digital innovation with cutting-edge technology solutions tailored to your business needs.
           </p>

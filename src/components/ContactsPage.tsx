@@ -1,8 +1,9 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import emailjs from 'emailjs-com';
+import heroBg from '../assets/Hero11.jpg';
 
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
@@ -33,7 +34,6 @@ const ContactsPage = () => {
     setSubmitError('');
 
     try {
-      // Send email using EmailJS
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -54,7 +54,6 @@ const ContactsPage = () => {
         message: '',
       });
       
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       console.error('Failed to send message:', error);
@@ -66,19 +65,19 @@ const ContactsPage = () => {
 
   const contactMethods = [
     {
-      icon: <FaPhone className="text-2xl" />,
+      icon: <FaPhone className="text-2xl text-[#007D82]" />,
       title: "Phone",
       info: "+91 7020038436",
-      action: "tel:+15551234567"
+      action: "tel:+917020038436"
     },
     {
-      icon: <FaEnvelope className="text-2xl" />,
+      icon: <FaEnvelope className="text-2xl text-[#007D82]" />,
       title: "Email",
       info: "info@qloron.com",
       action: "mailto:info@qloron.com"
     },
     {
-      icon: <FaMapMarkerAlt className="text-2xl" />,
+      icon: <FaMapMarkerAlt className="text-2xl text-[#007D82]" />,
       title: "Office",
       info: "Qloron Pvt Ltd, 7th floor, Innov8 coworking space, Pranava Business park, Kothaguda, Hyderabad, Telangana 500084",
       action: "https://maps.google.com"
@@ -105,53 +104,66 @@ const ContactsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="font-sans bg-gray-100">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-teal-600 to-blue-700 text-white py-28 md:py-36 overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-  <div className="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-white animate-float1"></div>
-  <div className="absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-white animate-float2"></div>
-  <div className="absolute top-1/2 left-1/5 w-10 h-10 rounded-full bg-white animate-float1"></div>
-  <div className="absolute bottom-3 right-1/4 w-6 h-6 rounded-full bg-white animate-float2"></div>
-  <div className="absolute bottom-1/4 left-3/4 w-8 h-8 rounded-full bg-white animate-float1"></div>
-  <div className="absolute bottom-1/3 right-1/5 w-10 h-10 rounded-full bg-white animate-float2"></div>
-  <div className="absolute top-10 left-2/3 w-6 h-6 rounded-full bg-white animate-float1"></div>
-  <div className="absolute top-16 right-1/6 w-14 h-14 rounded-full bg-white animate-float2"></div>
-  <div className="absolute bottom-10 left-10 w-8 h-8 rounded-full bg-white animate-float1"></div>
-  <div className="absolute bottom-20 right-16 w-10 h-10 rounded-full bg-white animate-float2"></div>
-</div>
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="container mx-auto px-6 text-center relative z-10"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Get in <span className="text-teal-300">Touch</span>
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
+      <section className="relative text-white h-[70vh] min-h-[500px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroBg} 
+            alt="Contact background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#007D82]/80 to-[#00C2C9]/50"></div>
+        </div> 
+
+        <div className="container mx-auto px-6 h-full flex flex-col justify-center items-center text-center relative z-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            Let's <span className="text-cyan-300">Connect</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xl md:text-2xl max-w-3xl mx-auto text-white mb-10"
+          >
             We'd love to hear from you. Reach out to start your next project.
-          </p>
-        </motion.div>
-        
-        {/* Animated background elements */}
-        <motion.div 
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-20 left-10 w-16 h-16 bg-white bg-opacity-10 rounded-full blur-xl"
-        />
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="flex gap-4 flex-wrap justify-center"
+          >
+            <motion.a 
+              href="#contact-form" 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-[#00C2C9] hover:bg-[#0099A0] text-white font-medium rounded-lg flex items-center gap-2 shadow-lg hover:shadow-teal-500/30"
+            >
+              <FaEnvelope />
+              Send Message
+            </motion.a>
+            <motion.a 
+              href="tel:+917020038436" 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium rounded-lg flex items-center gap-2 hover:shadow-lg"
+            >
+              <FaPhone />
+              Call Us
+            </motion.a>
+          </motion.div>
+        </div>
       </section>
 
       {/* Contact Content */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -173,13 +185,13 @@ const ContactsPage = () => {
                     key={index}
                     whileHover={{ x: 5 }}
                     href={method.action}
-                    className="flex items-start space-x-4 group"
+                    className="flex items-start gap-4 group p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200 hover:border-[#00C2C9]/50"
                   >
-                    <div className="p-3 bg-teal-100 text-teal-600 rounded-lg group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                    <div className="p-3 bg-[#00C2C9]/10 text-[#007D82] rounded-lg group-hover:bg-[#00C2C9] group-hover:text-white transition-colors">
                       {method.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 group-hover:text-teal-600 transition-colors">
+                      <h3 className="text-lg font-semibold text-gray-800 group-hover:text-[#007D82] transition-colors">
                         {method.title}
                       </h3>
                       <p className="text-gray-600">{method.info}</p>
@@ -191,7 +203,7 @@ const ContactsPage = () => {
               {/* Social Links */}
               <div className="pt-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Follow Us</h3>
-                <div className="flex space-x-4">
+                <div className="flex gap-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={index}
@@ -200,7 +212,7 @@ const ContactsPage = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gray-100 text-gray-700 rounded-full hover:bg-teal-100 hover:text-teal-600 transition-colors"
+                      className="p-3 bg-white text-[#007D82] rounded-full shadow-sm hover:bg-[#00C2C9] hover:text-white transition-colors border border-gray-200"
                     >
                       {social.icon}
                     </motion.a>
@@ -215,7 +227,8 @@ const ContactsPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-lg p-8"
+              className="bg-white rounded-xl shadow-lg p-8 border border-gray-200"
+              id="contact-form"
             >
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
               
@@ -223,20 +236,20 @@ const ContactsPage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg"
+                  className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg border border-green-200"
                 >
                   Thank you! Your message has been sent successfully. We'll get back to you soon.
                 </motion.div>
               )}
               {submitError && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg"
-          >
-            {submitError}
-          </motion.div>
-        )}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-100 text-red-800 rounded-lg border border-red-200"
+                >
+                  {submitError}
+                </motion.div>
+              )}
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -250,7 +263,7 @@ const ContactsPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C2C9] focus:border-[#00C2C9] text-gray-800 transition"
                   />
                 </div>
                 
@@ -265,7 +278,7 @@ const ContactsPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C2C9] focus:border-[#00C2C9] text-gray-800 transition"
                   />
                 </div>
                 
@@ -280,7 +293,7 @@ const ContactsPage = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C2C9] focus:border-[#00C2C9] text-gray-800 transition"
                   />
                 </div>
                 
@@ -295,7 +308,7 @@ const ContactsPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C2C9] focus:border-[#00C2C9] text-gray-800 transition"
                   ></textarea>
                 </div>
                 
@@ -307,7 +320,7 @@ const ContactsPage = () => {
                   className={`w-full py-3 px-6 rounded-lg font-bold text-white transition-colors ${
                     isSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed' 
-                      : 'bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600'
+                      : 'bg-gradient-to-r from-[#00C2C9] to-[#007D82] hover:from-[#0099A0] hover:to-[#006266] shadow-md'
                   }`}
                 >
                   {isSubmitting ? (
@@ -329,17 +342,16 @@ const ContactsPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="pb-20">
+      <section className="pb-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="rounded-xl overflow-hidden shadow-xl"
+            className="rounded-xl overflow-hidden shadow-lg border border-gray-200"
           >
             <div className="h-96 w-full bg-gray-200 relative">
-              {/* Replace this div with the iframe code from Google Maps */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4149773.739809196!2d76.21803021127427!3d19.097822644185662!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91612ab4721d%3A0x5b9ca42836fc8c3f!2sQloron%20Technology!5e0!3m2!1sen!2sin!4v1744890687846!5m2!1sen!2sin" 
                 width="100%"
