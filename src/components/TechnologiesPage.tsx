@@ -6,14 +6,13 @@ import tech from '../assets/techsec.PNG'
 import {
     FaReact, FaNodeJs, FaDatabase,
     FaAws, FaDocker, FaGitAlt, FaCode,
-    FaAngular, FaVuejs, FaPython,
-    FaKotlin, FaJava, FaAndroid, FaApple,
+    FaAngular, FaPython,
+     FaJava,
     FaHtml5, FaCss3, FaJs
 } from 'react-icons/fa';
 import {
-    SiTypescript, SiSpring, SiPostgresql,
+     SiSpring, SiPostgresql,
     SiMongodb, SiKubernetes, SiGraphql,
-    SiNextdotjs, SiTailwindcss, SiRedux,
     SiNestjs, SiExpress, SiFirebase,
     SiFlutter, SiIonic,SiKotlin
 } from 'react-icons/si';
