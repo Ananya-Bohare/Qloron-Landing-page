@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaRegEye, FaFilter } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import project1 from '../assets/enterprise.webp';
-
-// Import other project images if you have them
 import project2 from '../assets/project2.webp';
 import project3 from '../assets/project3.webp';
 import project4 from '../assets/project4.PNG';
@@ -410,7 +408,6 @@ const PortfolioPage = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             >
-              {stat.icon}
             </motion.div>
             <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-[#00C2C9] to-[#007D82] bg-clip-text text-transparent">
               {stat.value}

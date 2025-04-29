@@ -46,7 +46,7 @@ const TechnologiesPage: React.FC = () => {
             technologies: [
                 { name: "Node.js", icon: <FaNodeJs className="text-4xl text-green-600" /> },
                 { name: "Python", icon: <FaPython className="text-4xl text-blue-400" /> },
-                { name: "Java", icon: <FaCode className="text-4xl text-red-700" /> },
+                { name: "Java", icon: <FaJava className="text-4xl text-red-700" /> },
                 { name: "Spring", icon: <SiSpring className="text-4xl text-green-600" /> },
                 { name: ".NET", icon: <FaCode className="text-4xl text-blue-700" /> },
                 { name: "Express.js", icon: <SiExpress className="text-4xl text-gray-800" /> },
