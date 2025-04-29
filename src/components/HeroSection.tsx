@@ -20,11 +20,6 @@ import client10 from '../assets/client9.svg'
 import client11 from '../assets/client10.svg'
 import client12 from '../assets/client11.svg'
 import client13 from '../assets/client12.svg'
-import heroImage1 from '../assets/hero1.jpg';
-import heroImage2 from '../assets/hero2.jpg';
-import heroImage3 from '../assets/hero3.jpg';
-import heroImage4 from '../assets/hero4.png';
-import heroImage5 from '../assets/hero5.png';
 import bgVideo from '../assets/bg1.mp4'
 import {StarIcon, QuoteIcon, ArrowRightIcon} from 'lucide-react';
 const clientLogos = [
@@ -174,7 +169,6 @@ const fadeInRight = {
 };
 
 const Home: React.FC = () => {
-  const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4, heroImage5];
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
@@ -190,14 +184,7 @@ const Home: React.FC = () => {
     }
   }, [controls, isInView]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
+ 
 
   return (
     <div className="font-sans bg-gray-100">

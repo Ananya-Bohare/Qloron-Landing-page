@@ -1,5 +1,5 @@
 // src/components/Footer.tsx
-import React from 'react';
+//import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import logo from '../assets/logo (2).png';
